@@ -18,13 +18,13 @@ describe('nthFibonacci', function() {
   it('should be a function', function() {
     should.exist(nthFibonacci);
     // nthFibonacci.should.be.a.Function;
-    (typeof(nthFibonacci)).should.equals('function')
+    (typeof(nthFibonacci)).should.equal('function')
   });
 
   it('should return integers', function() {
     var result = nthFibonacci(0);
     should.exist(result);
-    (typeof(result)).should.equals('number')
+    (typeof(result)).should.equal('number')
   });
 
   it('should handle the base cases with ease', function() {
