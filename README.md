@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Online Code Editor
+A full stack web application for online programming, built with React(Frontend) and Express(Backend).
+<kbd>![image](/public/codeeditor.png)</kbd>
 
-## Getting Started
+# Function
+This application is used for online coding. After selecting the programming language, you can start to write code. Below are the highlighted features.
+* Five programming languages are supported, including c, c++, java, javascript and python.
+* Syntax highlighting for different languages.
+* Compilation and execution are supported. The proper result or error message will be displayed.
 
-First, run the development server:
+# Technology
+The Server is built with Express. The used libraries for server are listed as follows.
+* RESTful API: express, express router, cors
+* Compilation & Execution: spawn in node.js
 
+The Client is built with React and 3rd-party libraries, see below.
+* Styling: bootstrap
+* Rich Text Editor: react-ace
+
+# Demo
+Two available demos:
+* `Live Demo on Heroku:` <a href="https://code-editor-react.herokuapp.com/" target="\_blank">https://code-editor-react.herokuapp.com/</a>
+* `Live Demo on Netlify:` <a href="https://code-editor-react.netlify.com/" target="\_blank">https://code-editor-react.netlify.com/</a>
+* `Live Demo on Azure:` <a href="https://code-editor.azurewebsites.net/" target="\_blank">https://code-editor.azurewebsites.net/</a>
+
+*Note: The demo websites may be slow when you access them for the first time. Be patient!*
+
+# Setup Locally
 ```bash
+git clone https://github.com/jojozhuang/code-editor-react.git
+cd code-editor-react
+npm install
 npm run dev
-# or
-yarn dev
 ```
+Access http://localhost:3000/ in web browser and click 'Code Editor' button, enjoy!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Deployment
+Follow tutorial [Deploying Full Stack React App to Heroku](https://jojozhuang.github.io/tutorial/deploying-full-stack-react-app-to-heroku) to deploy the React app to Heroku(RESTful API + Frontend React).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Follow tutorial [Continuously Deploy Full Stack React App to Heroku and Netlify with Travis-CI](https://jojozhuang.github.io/tutorial/continuously-deploy-full-stack-react-app-to-heroku-and-netlify-with-travis-ci) to continuously deploy this Full Stack app to Heroku(RESTful API) and Netlify(Frontend React).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Portfolio
+Read portfolio [Code Editor(React)](https://jojozhuang.github.io/project/code-editor-react/) to learn the main functions of this code editor.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Tutorial
+Read tutorial [Building Online Code Editor with React and Express](https://jojozhuang.github.io/tutorial/building-online-code-editor-with-react-and-express) to learn how this online code editor is built.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Docker
+Build for production. All the compiled html files and js files will be generated in `dist`.
+```sh
+npm run build
+```
+Create image with nginx for frontend.
+```sh
+docker build -t jojozhuang/code-editor-web .
+```
+Create image with node for backend.
+```sh
+docker build -t jojozhuang/code-editor-server . -f Dockerfile-server
+```
+Create container.
+```sh
+docker run --name code-editor-web -p 9010:80 -d jojozhuang/code-editor-web
+docker run --name code-editor-server -p 9011:80 -d jojozhuang/code-editor-server
+```
+Access http://192.168.0.2:9010/ in browser.
