@@ -1,0 +1,15 @@
+{
+  "../node_modules/next/dist/client/next-dev.js -> ./dev/noop": {
+    "id": "./node_modules/next/dist/client/dev/noop.js",
+    "files": [
+      "static/chunks/node_modules_next_dist_client_dev_noop_js.js"
+    ]
+  },
+  "index.js -> ../components/codeEditor": {
+    "id": "./components/codeEditor.js",
+    "files": [
+      "static/chunks/vendors-node_modules_ace-builds_src-noconflict_mode-javascript_js-node_modules_ace-builds_src-abb26e.js",
+      "static/chunks/components_codeEditor_js.js"
+    ]
+  }
+}
