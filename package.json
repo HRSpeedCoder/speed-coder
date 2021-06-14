@@ -23,6 +23,7 @@
     "@babel/preset-env": "^7.14.5",
     "body-parser": "^1.19.0",
     "bootstrap-select": "^1.13.10",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "file-loader": "^1.1.11",
     "mem": "^6.0.1",

@@ -1,1 +1,4 @@
-console.log(23334 * 393939)
+function hello() {
+  console.log('Hello, javascript!');
+}
+hello();
