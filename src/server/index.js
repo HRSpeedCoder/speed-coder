@@ -52,6 +52,11 @@ app.get('/api/file/:lang', (req, res) => {
   });
 });
 
+app.get('database/:problemId', (req, res) => {
+  // get the correct problem from the database
+  console.log('in app.get /databases')
+})
+
 app.post('/api/run', (req, res) => {
   const file = req.body;
   console.log(`file.lang: ${file.lang}`, `file.code:${file.code}`);
