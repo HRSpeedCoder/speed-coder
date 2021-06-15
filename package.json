@@ -29,6 +29,7 @@
     "mem": "^6.0.1",
     "mini-css-extract-plugin": "^0.4.5",
     "mkdirp": "^0.5.1",
+    "mysql": "^2.18.1",
     "prop-types": "^15.7.2",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
