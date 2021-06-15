@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 // const cors = require('cors');
+const toyProblems = require('../../models/toyProblems');
 
 const FileApi = require('./api/FileApi');
 const RunnerManager = require('./compiler/RunnerManager');
@@ -55,6 +56,13 @@ app.get('/api/file/:lang', (req, res) => {
 app.get('database/:problemId', (req, res) => {
   // get the correct problem from the database
   console.log('in app.get /databases');
+  toyProblems.getProblem(req.params.id, (err, data) => {
+    if (err) {
+      console.log('err in app.get for toyproblem: ', err);
+    } else {
+      res.send(data);
+    }
+  })
 })
 
 app.post('/api/run', (req, res) => {
