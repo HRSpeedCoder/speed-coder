@@ -10,17 +10,16 @@ class CompilerApi {
       `${process.env.API_URL}/api/file/${lang}`,
       'GET',
       this.requestHeaders(),
-      null,
+      null
     );
   }
 
   static run(answer) {
-
     return HttpHelper.fetch(
       `${process.env.API_URL}/api/run/`,
       'POST',
       this.requestHeaders(),
-      JSON.stringify(answer),
+      JSON.stringify(answer)
     );
   }
 }
