@@ -2,8 +2,8 @@ const mysql = require('mysql');
 
 
 const db = mysql.createConnection({
-  user: 'speedcoder',
-  password: 'speedcoder',
+  user: 'postgres',
+  password: 'cookiez223',
   database: 'toy-problems'
 });
 
