@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const toyProblems = require('../../models/toyProblems');
 
 const FileApi = require('./api/FileApi');
 const RunnerManager = require('./compiler/RunnerManager');
@@ -7,6 +9,7 @@ const RunnerManager = require('./compiler/RunnerManager');
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+app.use(cors())
 // Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -47,6 +50,18 @@ app.get('/api/file/:lang', (req, res) => {
       code: content,
     };
     res.send(JSON.stringify(file));
+  });
+});
+
+app.get('database/:problemId', (req, res) => {
+  // get the correct problem from the database
+  console.log('in app.get /databases');
+  toyProblems.getProblem(req.params.id, (err, data) => {
+    if (err) {
+      console.log('err in app.get for toyproblem: ', err);
+    } else {
+      res.send(data);
+    }
   });
 });
 
