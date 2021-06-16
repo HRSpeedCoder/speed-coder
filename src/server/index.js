@@ -9,7 +9,7 @@ const RunnerManager = require('./compiler/RunnerManager');
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-// app.use(cors())
+app.use(cors())
 // Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
