@@ -6,6 +6,7 @@ import AlertDismissable from './controls/AlertDismissable';
 import OutputBox from './controls/OutputBox';
 import StatusImage from './controls/StatusImage';
 import CompilerApi from '../api/CompilerApi';
+import tests from '../testcases/sumTests';
 
 let languages = ['JavaScript', 'Python', 'Java', 'C', 'C++'];
 const languagesProd = ['JavaScript', 'Python'];
@@ -49,7 +50,6 @@ class Editor extends React.Component {
   handleCodeChange(code) {
     const { task } = this.state;
     task.code = code;
-    console.log(code);
     return this.setState({ task });
   }
 
@@ -102,7 +102,10 @@ class Editor extends React.Component {
           </FormGroup>
           <FormGroup controlId="code">
             <Col sm={12}>
-              <CodeEditor onChange={this.handleCodeChange} code={this.state.task.code} />
+              <CodeEditor
+                onChange={this.handleCodeChange}
+                code={this.state.task.code}
+              />
             </Col>
           </FormGroup>
           <FormGroup>

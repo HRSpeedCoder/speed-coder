@@ -1,4 +1,4 @@
-function hello(name) {
-  console.log(`Hello, my name is ${name}`);
+function sum(num1, num2) {
+  return num1 + num2
 }
-hello();
+console.log(sum(1, 1), sum(1, 2))

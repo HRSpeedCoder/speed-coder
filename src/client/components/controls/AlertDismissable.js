@@ -27,7 +27,6 @@ class AlertDismissable extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     if (this.state.show) {
       return (
         <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
